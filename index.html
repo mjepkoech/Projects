@@ -1,14 +1,221 @@
 <!DOCTYPE html>
 <html>
-<body>
+<style>
+#h1{
+font:bold 40px Tahoma;
+color: blue;}
+#header-text{
+font:bold 40px Tahoma;
+background-color: #fff;
+width: 70%;
+color: blue;}
+#container1{
+    height: auto;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #cce6ff;
+}
+#footer {
+    overflow: hidden;
+    color: #CCC;
+    background-color: #4A4C52;
+    width: 900px;
+    padding:10px;
+    margin: 0 auto;
+    font-size: 90%;
+}
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;}</style>
+    <script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-<h1>About Millicent</h1>
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
 
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<body style="background-color:#fff">
+<div id="container1">
+	    <center><div><h1 class="header-text">FRONT END DEVELOPMENT GEEKS</h1></div>
+    <div>
+	<a href="trial.php"><button id="btn" class="btn btn-primary ">Home</button></a>
+	<a href="trial.php"><button id="btn" class="btn btn-primary ">About us</button></a>
+	<a href="trial.php"><button id="btn" class="btn btn-primary ">Log-out</button></a>	
+    </div></center>
+<img src="image.jpg" alt="W3Schools.com" width="100%" height="300"></p>
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<h4><b>Our Partners:</b></h4>
+<table width="100%">
+         <tr><td><div class="col-sm-4">
+          <center><canvas id="myCanvas" width="150px" height="70px" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+</script> <h5>Nelson Company</h5>
+          <p>mombasa road</br>
+          address 95<br>
+        Nairobi</p></center>
+         </div></td>
+         <td><div class="col-sm-4">
+          <center><svg width="150px" height="70px">
+ <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg><h5>PCPB</h5>
+          <p>Kimathi street</br>
+          address 65<br>
+        Nairobi</p></center>
+         </div></td>
+         <td><center><div class="col-sm-4">
+         	<object data="image.jpg" width="150px" height="70px"></object>
+         <h5>AAK</h5>
+          <p>Rongai</br>
+          address 195<br>
+        Nairobi</p></center>
+         </div></td>
+          <td><div class="col-sm-3">
+          <center><img class="img-rounded"src="image.jpg" width="150px" height="70px">
+          <h5>Amiran</h5>
+          <p>Nakuru</br>
+          address 5675<br>
+        Nakuru</p></center>
+         </div></td></tr></table>
+     <h4>Our services</h4>
+   The video below generalizes our services
 <p>
-Name: Millicent Jepkoech<br>
-Email: mjepkoech@cytonn.com<br>
-Phone number: 0715109743</p>
+Video timer: <output id="result"></output>
+<button onclick="startWorker()">Start timer</button> 
+<button onclick="stopWorker()">Stop timer</button></p>
 
+
+<script>
+var w;
+
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    }
+}
+
+function stopWorker() { 
+    w.terminate();
+    w = undefined;
+}
+</script><br>
+<video width="80%" height="240" controls>
+  <source src="video.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+  
+<h5>Our Location</h5>
+<div id="westlandsmap" style="width:100%;height:400px;"></div>
+
+<script>
+
+            function initMap() {
+            var myLatLng = {lat: -1.268665592, lng: 36.805996776};
+
+            var map = new google.maps.Map(document.getElementById('westlandsmap'), {
+                zoom: 12,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Westlands google map!'
+            });
+        }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAKx0HHi9MjMSuccVOR5PMDv47DMSSJFc&callback=initMap">
+</script>
+<h5>Comments</h5>
+
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          Name: <br><input class="form-control" id="name" name="name" placeholder="Name" type="text" required> 
+        </div><br>
+        <div class="col-sm-6 form-group">
+          Email: <br><input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div><br>
+      <div>
+      Comments:<br> <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br><br>
+
+      </div>
+    </div>
+<button onclick="getLocation()">Help us get your location</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+Drag the image to the box to confirm you are not a robot
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="image.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+<br>
+<div id="results"></div>
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Created by Millicent");
+    // Retrieve
+    document.getElementById("results").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("results").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn" data-toggle="modal">Send</button>
+        </div>
+</div>
 </body>
 </html>
-
